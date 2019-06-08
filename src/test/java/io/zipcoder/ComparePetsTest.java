@@ -32,6 +32,26 @@ public class ComparePetsTest {
     }
 
     @Test
+    public void petComparableTest1(){
+       Assert.assertTrue(dog1 instanceof Comparable);
+    }
+
+    @Test
+    public void petComparableTest2(){
+        Assert.assertTrue(cat1 instanceof Comparable);
+    }
+
+    @Test
+    public void petComparableTest3(){
+        Assert.assertTrue(bird1 instanceof Comparable);
+    }
+    @Test
+    public void petComparatorTest(){
+        Comparator<Pet> petComparator = new PetComparator();
+        Assert.assertTrue(petComparator instanceof Comparator);
+    }
+
+    @Test
     public void SortByNameThenTypeTest1(){
         Arrays.sort(pets1);
         Pet[] expected = {bird1,dog1,bird2,dog2,cat1,bird3,cat3,dog3,cat2};
