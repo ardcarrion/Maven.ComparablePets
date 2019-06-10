@@ -33,7 +33,9 @@ public abstract class Pet implements Comparable<Pet> {
 
 
     public int compareTo(Pet p) {
-        return p.getName().compareTo(this.name);
+        int compared = this.name.compareTo(p.getName());
+        if (compared == 0) compared = this.getType().compareTo(p.getType());
+        return compared;
     }
 
 
@@ -45,5 +47,12 @@ public abstract class Pet implements Comparable<Pet> {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getType() {
+        if (this instanceof Cat) return "Cat";
+        else if (this instanceof Dog) return "Dog";
+        else if (this instanceof Bird) return "Bird";
+        return "Pet";
     }
 }
