@@ -1,6 +1,8 @@
 package io.zipcoder.pets;
 
-public abstract class Pet {
+import java.util.Comparator;
+
+public abstract class Pet implements Comparable<Pet> {
 
     private String name;
 
@@ -27,6 +29,11 @@ public abstract class Pet {
             }
         }
         return formatted;
+    }
+
+
+    public int compareTo(Pet p) {
+        return p.getName().compareTo(this.name);
     }
 
 
